@@ -1,6 +1,7 @@
 let firstNum;
 let operator;
 let lastNum;
+let expression;
 function add(a, b){
     return a + b;
 }
@@ -24,4 +25,19 @@ function operate(a, b, operator){
         case '÷':
             return divide(a,b);
     }
+}
+
+document.addEventListener('DOMContentLoaded', () =>{
+    numberButton = document.getElementsByClassName('number');
+    Array.from(numberButton).forEach(element => {
+    element.addEventListener('click' ,(event)=>{
+        updateScreen(event.target.textContent);
+    })
+});
+})
+
+function updateScreen (text){
+    screenText = document.getElementById("screen");
+    screenText.textContent += text;
+    expression = screenText.textContent;
 }
