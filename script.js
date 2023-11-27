@@ -19,9 +19,9 @@ function operate(a, b, operator){
             return add(a,b);
         case '-':
             return subtract(a,b);
-        case '*':
+        case '×':
             return multiply(a,b);
-        case '/':
+        case '÷':
             return divide(a,b);
     }
 }
