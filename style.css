@@ -20,7 +20,7 @@ button{
     border-radius: 15px;
 }
 
-.clear, .delete{
+#clear, #delete{
     width: 220px;
     margin-top:0;
 }

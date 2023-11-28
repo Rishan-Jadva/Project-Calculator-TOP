@@ -12,9 +12,6 @@ function multiply(a, b){
     return a * b;
 }
 function divide(a, b){
-    if (b == 0){
-        return "Error";
-    }
     return a / b;
 }
 function operate(a, b, operator){
@@ -56,14 +53,29 @@ document.addEventListener('DOMContentLoaded', () =>{
     Array.from(equalButton).forEach(element => {
     element.addEventListener('click' ,equals)
 });
+    decimalButton = document.getElementById('decimal');
+    decimalButton.addEventListener('click', () =>{
+        screenText = document.getElementById('screen');
+        if(!screenText.textContent.includes(".") || (operator.length>=1 && !lastNum.includes("."))){
+        updateNumber('.');}
+    })
 function equals(){
     screenText = document.getElementById("screen");
     screenText.textContent = parseFloat(operate(firstNum, lastNum, operator).toFixed(3)).toString();
+    if(screenText.textContent =='Infinity') screenText.textContent = 'Cannot Divide By 0';
     firstNum = screenText.textContent;
     operator = '';
     lastNum = '';
     operated = true;
 }
+clearButton = document.getElementById("clear");
+clearButton.addEventListener('click', ()=>{
+    screenText.textContent = '';
+    firstNum='';
+    operator='';
+    lastNum='';
+    operated = false;
+})
 })
 
 function updateNumber (text){
