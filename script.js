@@ -58,7 +58,17 @@ document.addEventListener('DOMContentLoaded', () =>{
         screenText = document.getElementById('screen');
         if(!screenText.textContent.includes(".") || (operator.length>=1 && !lastNum.includes("."))){
         updateNumber('.');}
-    })
+    });
+    const deleteButton = document.getElementById('delete');
+    deleteButton.addEventListener('click', () => {
+    const screenText = document.getElementById('screen');
+    screenText.textContent = screenText.textContent.slice(0, -1);
+    if (operator.length >= 1) {
+        lastNum = screenText.textContent.slice(firstNum.length + operator.length);
+    } else {
+        firstNum = screenText.textContent;
+    }
+});
 function equals(){
     screenText = document.getElementById("screen");
     screenText.textContent = parseFloat(operate(firstNum, lastNum, operator).toFixed(3)).toString();

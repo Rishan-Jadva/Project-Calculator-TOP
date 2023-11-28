@@ -36,3 +36,8 @@ button{
     align-items: end;
     font-size: 48px;
 }
+
+.operator,.equal,#decimal{
+    color: rgba(255,255,255,100%);
+    background-color: rgb(100,100,100);
+}
